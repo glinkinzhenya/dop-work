@@ -11,6 +11,7 @@
 
 // Если питомца нету путь рендерится реклама например машин и тд
 
+
 const users = [
     ["Kateryna", 26, "Kyiv"],
     ["Manuel", 22, "Wroclaw"],
@@ -28,29 +29,36 @@ function renderUsers(arr1, arr2, myFunc) {
     let all = [];
     let other = [];
 
-    arr1.forEach(function(i) {
+    arr1.forEach(function (i) {
         other.push(i);
 
-        arr2.forEach(function(j) {
+        arr2.forEach(function (j) {
             if (i[0] === j[3]) {
                 all.push(i.concat(j));
                 other.pop();
             };
         });
-});
+    });
 
     all = all.concat(other);
 
-    let mass = [];
+    document.write(`<div class="container">${myFunc(all).join("")}</div>`);
+}
 
-    all.forEach(function(i) {
+renderUsers(users, pets, getPetAdvertisment);
+
+function getPetAdvertisment(arr) {
+
+    let mass = [];
+    arr.forEach(function (i) {
+
         if (i[3] === undefined) {
             mass.push(`<div class="person">
  			                <h1>${i[0]}</h1>
  			                <p>Возраст: ${i[1]}</p>
  			                <p>Город: ${i[2]}</p>
 			                <div>
- 				            <img class="image" src="img/${myFunc(i[4])}.jpg" alt="">
+ 				            <img class="image" src="img/car.jpg" alt="">
  			                </div>
 		                    </div>`);
         } else {
@@ -62,24 +70,10 @@ function renderUsers(arr1, arr2, myFunc) {
                             <p>Животное: ${i[4]}</p>
                             <p>Порода: ${i[5]}</p>
 			                <div>
- 				            <img class="image" src="img/${myFunc(i[4])}.jpg" alt="${myFunc(i[4])}">
+ 				            <img class="image" src="img/${i[4]}.jpg" alt="${(i[4])}">
  			                </div>
 		                    </div>`);
         };
     });
-    document.write(`<div class="container">${mass.join("")}</div>`);
-}
-
-renderUsers(users, pets, getPetAdvertisment);
-
-function getPetAdvertisment(arr) {
-    if (arr === "cat") {
-        return "cat"
-    } if (arr === "parrot") {
-        return "parrot"
-    } if (arr === "dog") {
-        return "dog"
-    } else {
-        return "car"
-    };
+    return mass
 };
