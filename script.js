@@ -29,7 +29,8 @@ function renderUsers(arr1, arr2, myFunc) {
     let all = [];
     let other = [];
 
-    arr1.forEach(function(i) {
+    arr1.forEach(function (i) {
+        
         other.push(i);
 
         arr2.forEach(function(j) {
