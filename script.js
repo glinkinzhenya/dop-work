@@ -17,7 +17,6 @@ const users = [
     ["Manuel", 22, "Wroclaw"],
     ["Bohdan", 30, "Ivano-Frankovsk"],
     ["Oleksii", 31, "Dnipro"],
-    ["Olvveveeksii", 31, "Dnipro"],
 ];
 const pets = [
     ["Alisa", "cat", "British", "Kateryna"],
