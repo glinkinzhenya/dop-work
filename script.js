@@ -29,11 +29,11 @@ function renderUsers(arr1, arr2, myFunc) {
     let all = [];
     let other = [];
 
-    arr1.forEach(function(i) {
-        
+    arr1.forEach(function (i) {
+
         other.push(i);
 
-        arr2.forEach(function(j) {
+        arr2.forEach(function (j) {
             if (i[0] === j[3]) {
                 all.push(i.concat(j));
                 other.pop();
@@ -52,9 +52,9 @@ function getPetAdvertisment(arr) {
 
     let mass = [];
 
-    arr.forEach(function(i) {
+    arr.forEach(function (i) {
 
-        if (i[3] === undefined) {
+        if (i.length < 4) {
             mass.push(`<div class="person">
  			                <h1>${i[0]}</h1>
  			                <p>Возраст: ${i[1]}</p>
